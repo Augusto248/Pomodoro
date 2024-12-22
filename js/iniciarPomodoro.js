@@ -25,7 +25,7 @@ function ObtenerEstadoBoton() {
 }
 
 function EfectoPresionarBoton(activo) {
-    ReproducirSonido("/assets/button-click-3.mp3");
+    ReproducirSonido("./assets/button-click-3.mp3");
 
     if (activo == true) {
         btn.style.height = "100%";
@@ -72,7 +72,7 @@ function StartCronometro() {
 
 function FinalizarCronometro() {
     clearInterval(intervalo);
-    ReproducirSonido("/assets/time-to-break-2.mp3");
+    ReproducirSonido("./assets/time-to-break-2.mp3");
     CambiarVentana();
     EfectoPresionarBoton(false);
     CambiarTextoBoton(false);
