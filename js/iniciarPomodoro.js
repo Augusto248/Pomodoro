@@ -72,7 +72,7 @@ function StartCronometro() {
 
 function FinalizarCronometro() {
     clearInterval(intervalo);
-    ReproducirSonido("assets/time-to-break-2.mp3");
+    ReproducirSonido("assets/time-to-break-4.mp3");
     CambiarVentana();
     EfectoPresionarBoton(false);
     CambiarTextoBoton(false);
