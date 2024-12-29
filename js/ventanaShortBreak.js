@@ -2,6 +2,8 @@ let cronometro = document.getElementById("Cronometro")
 let btnShortBreak = document.getElementById("BtnShortBreak");
 let btnWork = document.getElementById("BtnWork");
 let pomodoro = document.getElementsByClassName("Pomodoro")[0];
+let btnStart = document.getElementById("BtnStart");
+
 
 export function VentanaShortBreak() {
     CambiarTiempo();
@@ -16,6 +18,7 @@ function CambiarColorDeFondo() {
 
     document.body.style.backgroundColor = mainColor;
     pomodoro.style.backgroundColor = secondaryColor;
+    btnStart.style.color = mainColor;
 }
 
 function CambiarTiempo() {

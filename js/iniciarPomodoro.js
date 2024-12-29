@@ -3,6 +3,7 @@ import { VentanaWork } from "./ventanaWork.js";
 
 
 let intervalo;
+let intervaloTitulo;
 let cronometro = document.getElementById("Cronometro")
 let btn = document.getElementById("BtnStart");
 let btnWork = document.getElementById("BtnWork");
@@ -73,6 +74,8 @@ function StartCronometro() {
 function FinalizarCronometro() {
     clearInterval(intervalo);
     ReproducirSonido("assets/time-to-break-4.mp3");
+    CambiarTitulo();
+    LanzarNotificacion();
     CambiarVentana();
     EfectoPresionarBoton(false);
     CambiarTextoBoton(false);
@@ -86,6 +89,40 @@ function CambiarVentana() {
     else {
         VentanaWork();
     }
+}
+
+function CambiarTitulo() {
+    if (btnWork.classList.contains("Boton--Oscuro")) {
+        let textoCambiado = false;
+
+        intervaloTitulo = setInterval(() => {
+            if (textoCambiado == false) {
+                document.title = "00:00 Time for break";
+                textoCambiado = true;
+            }
+            else {
+                document.title = "------- Time for break";
+                textoCambiado = false;
+            }
+        }, 1000);
+    }
+
+    else {
+        clearInterval(intervaloTitulo);
+        document.title = "Pomodoro";
+    }
+}
+
+function LanzarNotificacion() {
+    if (btnWork.classList.contains("Boton--Oscuro")) {
+        if (Notification.permission === 'granted') {
+            new Notification('Pomodoro finalizado', {
+                body: "Time for break!",
+                icon: 'https://example.com/icon.png' // Cambia esto por la URL de un ícono
+            });
+        }
+    }
+
 }
 
 function ReproducirSonido(rutaArchivo) {

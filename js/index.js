@@ -15,6 +15,13 @@ function CargarEventos() {
     BtnWork();
     BtnShortBreak();
     BtnStart();
+    HabilitarPermisosNotificacion();
+}
+
+function HabilitarPermisosNotificacion() {
+    if ('Notification' in window && Notification.permission !== 'denied') {
+        Notification.requestPermission();
+    }
 }
 
 function BtnWork() {

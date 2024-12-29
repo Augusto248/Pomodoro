@@ -2,7 +2,7 @@ let cronometro = document.getElementById("Cronometro")
 let btnWork = document.getElementById("BtnWork");
 let btnShortBreak = document.getElementById("BtnShortBreak");
 let pomodoro = document.getElementsByClassName("Pomodoro")[0];
-let body = document.body;
+let btnStart = document.getElementById("BtnStart");
 
 
 export function VentanaWork() {
@@ -34,4 +34,5 @@ function CambiarColorDeFondo() {
 
     document.body.style.backgroundColor = mainColor;
     pomodoro.style.backgroundColor = secondaryColor;
+    btnStart.style.color = mainColor;
 }
