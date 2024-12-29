@@ -6,6 +6,7 @@ let btnStart = document.getElementById("BtnStart");
 
 
 export function VentanaShortBreak() {
+    LanzarNotificacion();
     CambiarTiempo();
     EstiloBotonActivo();
     CambiarColorDeFondo();
@@ -22,7 +23,7 @@ function CambiarColorDeFondo() {
 }
 
 function CambiarTiempo() {
-    cronometro.textContent = "05:00";
+    cronometro.textContent = "00:02";
 }
 
 function EstiloBotonActivo() {
@@ -32,3 +33,15 @@ function EstiloBotonActivo() {
     btnShortBreak.classList.add("Boton--Oscuro");
     btnShortBreak.classList.add("Boton--Oscuro--Break");
 }
+
+function LanzarNotificacion() {
+
+    if (Notification.permission === 'granted') {
+        new Notification('Pomodoro finalizado', {
+            body: "Time for break!",
+            icon: 'https://example.com/icon.png' // Cambia esto por la URL de un ícono
+        });
+    }
+}
+
+

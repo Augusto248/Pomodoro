@@ -74,56 +74,52 @@ function StartCronometro() {
 function FinalizarCronometro() {
     clearInterval(intervalo);
     ReproducirSonido("assets/time-to-break-4.mp3");
-    CambiarTitulo();
-    LanzarNotificacion();
-    CambiarVentana();
     EfectoPresionarBoton(false);
     CambiarTextoBoton(false);
+    CambiarVentana();
 }
 
 function CambiarVentana() {
-    if (btnWork.classList.contains("Boton--Oscuro")) {
+    let ventanaWorkActiva = VentanaWorkSeEncuentraActiva();
+    if (ventanaWorkActiva == true) {
         VentanaShortBreak();
+        CambiarTituloBreak();
     }
 
     else {
         VentanaWork();
+        CambiarTituloWork();
     }
 }
 
-function CambiarTitulo() {
+function VentanaWorkSeEncuentraActiva() {
     if (btnWork.classList.contains("Boton--Oscuro")) {
-        let textoCambiado = false;
-
-        intervaloTitulo = setInterval(() => {
-            if (textoCambiado == false) {
-                document.title = "00:00 Time for break";
-                textoCambiado = true;
-            }
-            else {
-                document.title = "------- Time for break";
-                textoCambiado = false;
-            }
-        }, 1000);
+        return true;
     }
 
-    else {
-        clearInterval(intervaloTitulo);
-        document.title = "Pomodoro";
-    }
+    return false;
 }
 
-function LanzarNotificacion() {
-    if (btnWork.classList.contains("Boton--Oscuro")) {
-        if (Notification.permission === 'granted') {
-            new Notification('Pomodoro finalizado', {
-                body: "Time for break!",
-                icon: 'https://example.com/icon.png' // Cambia esto por la URL de un ícono
-            });
+function CambiarTituloBreak() {
+    let textoCambiado = false;
+
+    intervaloTitulo = setInterval(() => {
+        if (textoCambiado == false) {
+            document.title = "00:00 Time for break";
+            textoCambiado = true;
         }
-    }
-
+        else {
+            document.title = "------- Time for break";
+            textoCambiado = false;
+        }
+    }, 1000);
 }
+
+function CambiarTituloWork() {
+    document.title = "Pomodoro";
+    clearInterval(intervaloTitulo);
+}
+
 
 function ReproducirSonido(rutaArchivo) {
     const sonido = new Audio(rutaArchivo);

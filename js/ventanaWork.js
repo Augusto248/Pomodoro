@@ -9,11 +9,12 @@ export function VentanaWork() {
     CambiarTiempo();
     EstiloBotonActivo();
     CambiarColorDeFondo();
+    CambiarTitulo();
 }
 
 
 function CambiarTiempo() {
-    cronometro.textContent = "20:00";
+    cronometro.textContent = "00:02";
 }
 
 function EstiloBotonActivo() {
@@ -36,3 +37,8 @@ function CambiarColorDeFondo() {
     pomodoro.style.backgroundColor = secondaryColor;
     btnStart.style.color = mainColor;
 }
+
+
+function CambiarTitulo() {
+    document.title = "Pomodoro";
+}  
