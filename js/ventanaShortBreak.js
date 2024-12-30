@@ -1,3 +1,5 @@
+import { SetIntervaloTitulo } from "./iniciarPomodoro.js";
+
 let cronometro = document.getElementById("Cronometro")
 let btnShortBreak = document.getElementById("BtnShortBreak");
 let btnWork = document.getElementById("BtnWork");
@@ -10,6 +12,7 @@ export function VentanaShortBreak() {
     CambiarTiempo();
     EstiloBotonActivo();
     CambiarColorDeFondo();
+    CambiarTituloBreak();
 }
 
 function CambiarColorDeFondo() {
@@ -23,7 +26,7 @@ function CambiarColorDeFondo() {
 }
 
 function CambiarTiempo() {
-    cronometro.textContent = "00:02";
+    cronometro.textContent = "05:00";
 }
 
 function EstiloBotonActivo() {
@@ -42,6 +45,23 @@ function LanzarNotificacion() {
             icon: 'https://example.com/icon.png' // Cambia esto por la URL de un ícono
         });
     }
+}
+
+function CambiarTituloBreak() {
+    let textoCambiado = false;
+
+    let intervaloTitulo = setInterval(() => {
+        if (textoCambiado == false) {
+            document.title = "00:00 Time for break";
+            textoCambiado = true;
+        }
+        else {
+            document.title = "------- Time for break";
+            textoCambiado = false;
+        }
+    }, 1000);
+
+    SetIntervaloTitulo(intervaloTitulo);
 }
 
 

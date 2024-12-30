@@ -1,3 +1,5 @@
+import { EndIntervaloTitulo } from "./iniciarPomodoro.js";
+
 let cronometro = document.getElementById("Cronometro")
 let btnWork = document.getElementById("BtnWork");
 let btnShortBreak = document.getElementById("BtnShortBreak");
@@ -9,12 +11,12 @@ export function VentanaWork() {
     CambiarTiempo();
     EstiloBotonActivo();
     CambiarColorDeFondo();
-    CambiarTitulo();
+    CambiarTituloWork();
 }
 
 
 function CambiarTiempo() {
-    cronometro.textContent = "00:02";
+    cronometro.textContent = "20:00";
 }
 
 function EstiloBotonActivo() {
@@ -39,6 +41,7 @@ function CambiarColorDeFondo() {
 }
 
 
-function CambiarTitulo() {
+function CambiarTituloWork() {
+    EndIntervaloTitulo();
     document.title = "Pomodoro";
-}  
+}

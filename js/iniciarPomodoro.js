@@ -8,6 +8,14 @@ let cronometro = document.getElementById("Cronometro")
 let btn = document.getElementById("BtnStart");
 let btnWork = document.getElementById("BtnWork");
 
+export function SetIntervaloTitulo(nuevoValor) {
+    intervaloTitulo = nuevoValor;
+}
+
+export function EndIntervaloTitulo() {
+    clearInterval(intervaloTitulo);
+}
+
 export function IniciarPomodoro() {
     let activo = ObtenerEstadoBoton();
     EfectoPresionarBoton(activo);
@@ -83,12 +91,10 @@ function CambiarVentana() {
     let ventanaWorkActiva = VentanaWorkSeEncuentraActiva();
     if (ventanaWorkActiva == true) {
         VentanaShortBreak();
-        CambiarTituloBreak();
     }
 
     else {
         VentanaWork();
-        CambiarTituloWork();
     }
 }
 
@@ -100,25 +106,6 @@ function VentanaWorkSeEncuentraActiva() {
     return false;
 }
 
-function CambiarTituloBreak() {
-    let textoCambiado = false;
-
-    intervaloTitulo = setInterval(() => {
-        if (textoCambiado == false) {
-            document.title = "00:00 Time for break";
-            textoCambiado = true;
-        }
-        else {
-            document.title = "------- Time for break";
-            textoCambiado = false;
-        }
-    }, 1000);
-}
-
-function CambiarTituloWork() {
-    document.title = "Pomodoro";
-    clearInterval(intervaloTitulo);
-}
 
 
 function ReproducirSonido(rutaArchivo) {
