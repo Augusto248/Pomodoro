@@ -14,6 +14,7 @@
     --medium-font-size: 25px;
     --big-font-size: 60px;
     --transition-background-color: background-color 0.8s ease-in-out;
+    --font-family : system-ui, sans-serif;
   }
 
 body{
@@ -24,7 +25,7 @@ body{
     height: 100vh;
     color: var(--primary-color-text);
     background-color: var(--primary-color);
-    font-family: system-ui, sans-serif;
+    font-family: var(--font-family);
     transition: var(--transition-background-color);
 }
 
@@ -75,6 +76,16 @@ main{
     align-items: center;
     /*background-color: violet;*/
     font-size: var(--big-font-size);
+}
+
+.Pomodoro__Main__Cronometro{
+    all: unset;
+    width: 70%;
+    text-align: center;
+    cursor: pointer;
+    color: var(--primary-color-text);
+    font-size: 120px;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
 }
 
 .Pomodoro__Footer{

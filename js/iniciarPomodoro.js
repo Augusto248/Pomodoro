@@ -114,7 +114,7 @@ function ReproducirSonido(rutaArchivo) {
 }
 
 function ObtenerSegundos() {
-    let tiempo = cronometro.textContent;
+    let tiempo = cronometro.value;
     let [minutos, segundos] = tiempo.split(":").map(Number);
     return minutos * 60 + segundos;
 }
@@ -125,7 +125,7 @@ function ActualizarCronometro(segundos) {
     let segundosRestantes = segundos % 60;
 
     // Asegura que los números siempre tengan dos dígitos
-    cronometro.textContent =
+    cronometro.value =
         `${minutosRestantes.toString().padStart(2, "0")}:${segundosRestantes.toString().padStart(2, "0")}`;
 }
 

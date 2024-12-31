@@ -16,7 +16,7 @@ export function VentanaWork() {
 
 
 function CambiarTiempo() {
-    cronometro.textContent = "20:00";
+    cronometro.value = "20:00";
 }
 
 function EstiloBotonActivo() {

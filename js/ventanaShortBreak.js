@@ -26,7 +26,7 @@ function CambiarColorDeFondo() {
 }
 
 function CambiarTiempo() {
-    cronometro.textContent = "05:00";
+    cronometro.value = "05:00";
 }
 
 function EstiloBotonActivo() {
